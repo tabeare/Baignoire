@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="baignoire.GuiController">
+   <children>
+      <ProgressBar fx:id="progressbar" layoutX="50.0" layoutY="297.0" prefHeight="20.0" prefWidth="500.0" progress="0.0" />
+      <Slider fx:id="slider_fuite" layoutX="85.0" layoutY="217.0" majorTickUnit="100.0" max="1000.0" prefHeight="15.0" prefWidth="430.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider fx:id="slider_entree" layoutX="85.0" layoutY="135.0" majorTickUnit="100.0" max="1000.0" prefHeight="15.0" prefWidth="430.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <ComboBox fx:id="combobox" layoutX="355.0" layoutY="50.0" prefHeight="27.0" prefWidth="87.0" />
+      <Label layoutX="159.0" layoutY="55.0" text="Taille de la baignoire en litres:" />
+      <Label layoutX="202.0" layoutY="113.0" text="Quantité de l'eau entrant en cl/s" />
+      <Label layoutX="202.0" layoutY="195.0" text="Quantité de l'eau sortant en cl/s" />
+      <Label layoutX="149.0" layoutY="330.0" text="Temps qu'il faut encore à remplir la baignoire: " />
+      <Label fx:id="texte" layoutX="444.0" layoutY="330.0" text="-" />
+   </children>
+</Pane>
