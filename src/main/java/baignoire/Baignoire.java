@@ -7,7 +7,7 @@ public class Baignoire {
 	
 	public Baignoire(Integer capacite) {
 		super();
-		this.fill = 0;
+		this.fill = 0; // initial fill = 0; fill en cl
 		this.capacite = capacite; //capacité en cl
 	}
 
@@ -44,14 +44,13 @@ public class Baignoire {
 	public boolean isFull() {
 		if (fill < capacite) 
 			return false;
-		else
-			return true;
+		return true;
 	}
 	
 	public String temps(double sup, double ded) {
-		double libre = this.capacite - this.fill;
-		double vitesse = sup - ded;
-		Integer temps = (int) Math.round((libre/vitesse)/60);
+		double libre = this.capacite - this.fill; // volume d'espace qui est encore libre dans la baignoire en cl
+		double vitesse = sup - ded; // vitesse de l'eau entrant en cl/s
+		double temps = Math.round(libre/vitesse*10.00)/10.00; // temps qu'il faut encore pour remplir la baignoire
 		return Double.toString(temps);
 	}
 	
