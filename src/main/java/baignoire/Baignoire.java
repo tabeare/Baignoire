@@ -2,7 +2,7 @@ package baignoire;
 
 public class Baignoire {
 
-	private Integer fill;
+	private double fill;
 	private Integer capacite;
 	
 	public Baignoire(Integer capacite) {
@@ -11,11 +11,11 @@ public class Baignoire {
 		this.capacite = capacite; //capacité en cl
 	}
 
-	public Integer getFill() {
+	public double getFill() {
 		return fill;
 	}
 
-	public void setFill(Integer fill) {
+	public void setFill(double fill) {
 		this.fill = fill;
 	}
 
@@ -27,14 +27,14 @@ public class Baignoire {
 		this.capacite = capacite;
 	}
 	
-	public void remplirBaignoire(Integer sup) {
+	public void remplirBaignoire(double sup) {
 		if (this.fill + sup > this.capacite)
 			this.fill = this.capacite;
 		else
 			this.fill = this.fill + sup;
 	}
 	
-	public void viderBaignoire(Integer ded) {
+	public void viderBaignoire(double ded) {
 		if (this.fill - ded < 0)
 			this.fill = 0;
 		else
@@ -48,9 +48,11 @@ public class Baignoire {
 			return true;
 	}
 	
-//	public float temps() {
-//		
-//	}
-	
+	public String temps(double sup, double ded) {
+		double libre = this.capacite - this.fill;
+		double vitesse = sup - ded;
+		Integer temps = (int) Math.round((libre/vitesse)/60);
+		return Double.toString(temps);
+	}
 	
 }

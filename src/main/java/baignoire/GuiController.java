@@ -3,6 +3,7 @@ package baignoire;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -39,17 +40,22 @@ public class GuiController {
 						baignoire.setCapacite(combobox.getSelectionModel().getSelectedItem()*100);
 						progressbar.setProgress((double)baignoire.getFill()/baignoire.getCapacite());
 						
+						Integer sup = (int)slider_entree.getValue()/100;
+						Integer ded = (int)slider_fuite.getValue()/100;
+						String text = baignoire.temps(sup, ded);
+						Platform.runLater(() -> texte.setText(text));
+						
+//						System.out.println(baignoire.isFull());
+//						if (baignoire.isFull()) {
+//							Alert alert = new Alert(AlertType.INFORMATION);
+//							alert.setTitle("Information Dialog");
+//							alert.setHeaderText("Look, an Information Dialog");
+//							alert.setContentText("La Baignoire est pleine!");
+//							alert.showAndWait();
+//						}
+//						
 						Thread.sleep(10);
 					} catch (InterruptedException e) {
-					}
-
-					System.out.println(baignoire.isFull());
-					if (baignoire.isFull()) {
-						Alert alert = new Alert(AlertType.INFORMATION);
-						alert.setTitle("Information Dialog");
-						alert.setHeaderText("Look, an Information Dialog");
-						alert.setContentText("La Baignoire est pleine!");
-						alert.showAndWait();
 					}
 					
 					pool.shutdown();
@@ -61,7 +67,7 @@ public class GuiController {
 			public void run() {
 				while (!baignoire.isFull()) {
 					try {
-						Integer sup = (int)slider_entree.getValue()/100;
+						double sup = (double)slider_entree.getValue()/100;
 						baignoire.remplirBaignoire(sup);
 						Thread.sleep(10);
 		
@@ -76,7 +82,7 @@ public class GuiController {
 			public void run() {
 				while (!baignoire.isFull()) {
 					try {
-						Integer ded = (int)slider_fuite.getValue()/100;
+						double ded = (double)slider_fuite.getValue()/100;
 						baignoire.viderBaignoire(ded);
 						Thread.sleep(10);
 								
