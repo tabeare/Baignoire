@@ -37,14 +37,12 @@ public class GuiController {
 			public void run() {
 				while (!baignoire.isFull()) {
 					try {
-						baignoire.setCapacite(combobox.getSelectionModel().getSelectedItem()*100);
-						progressbar.setProgress((double)baignoire.getFill()/baignoire.getCapacite());
-						
+						baignoire.setCapacite(combobox.getSelectionModel().getSelectedItem()*100); // capacité de la baignoire en cl
 						Integer sup = (int)slider_entree.getValue(); // débit du robinet en cl/s 
 						Integer ded = (int)slider_fuite.getValue(); // débit de la fuite en cl/s
 						
-						String temps = baignoire.temps(sup, ded);
-						Platform.runLater(() -> texte.setText(temps));
+						progressbar.setProgress((double)baignoire.getFill()/baignoire.getCapacite());
+						Platform.runLater(() -> texte.setText(Double.toString(baignoire.temps(sup, ded))));
 					
 						Thread.sleep(10);
 						

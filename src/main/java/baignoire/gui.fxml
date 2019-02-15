@@ -15,8 +15,8 @@
       <Label layoutX="159.0" layoutY="55.0" text="Taille de la baignoire en litres:" />
       <Label layoutX="202.0" layoutY="113.0" text="Quantité de l'eau entrant en cl/s" />
       <Label layoutX="202.0" layoutY="195.0" text="Quantité de l'eau sortant en cl/s" />
-      <Label layoutX="149.0" layoutY="330.0" text="Temps qu'il faut encore à remplir la baignoire: " />
-      <Label fx:id="texte" layoutX="441.0" layoutY="330.0" text="-" />
-      <Label fx:id="texte1" layoutX="477.0" layoutY="330.0" text="secondes" />
+      <Label layoutX="107.0" layoutY="330.0" text="Temps qu'il faut encore à remplir la baignoire: " />
+      <Label fx:id="texte" layoutX="392.0" layoutY="330.0" text="-" />
+      <Label layoutX="435.0" layoutY="330.0" text="secondes" />
    </children>
 </Pane>
